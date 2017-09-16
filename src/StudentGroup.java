@@ -6,7 +6,7 @@ import java.util.Date;
  * after the element was removed the size of the array should be equal to the number of stored elements
  * after the element was added the size of the array should be equal to the number of stored elements
  * null elements are not allowed to be stored in the array
- * 
+ *
  * You may add new methods, fields to this class, but DO NOT RENAME any given class, interface or method
  * DO NOT PUT any classes into packages
  *
@@ -14,7 +14,7 @@ import java.util.Date;
 public class StudentGroup implements StudentArrayOperation {
 
 	private Student[] students;
-	
+
 	/**
 	 * DO NOT remove or change this constructor, it will be used during task check
 	 * @param length
@@ -25,39 +25,68 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student[] getStudents() {
-		// Add your implementation here
-		return null;
+	     return students;
 	}
 
 	@Override
-	public void setStudents(Student[] students) {
-		// Add your implementation here
+	public void setStudents(Student[] students) throws IllegalArgumentException{
+		if(students == null){
+            throw new IllegalArgumentException();
+        }
 	}
 
 	@Override
-	public Student getStudent(int index) {
-		// Add your implementation here
-		return null;
+	public Student getStudent(int index) throws IllegalArgumentException {
+		if(index <0 || index >=students.length){
+            throw new IllegalArgumentException();
+        }
+		return students[index];
 	}
 
 	@Override
-	public void setStudent(Student student, int index) {
-		// Add your implementation here
+	public void setStudent(Student student, int index) throws IllegalArgumentException{
+		if(student == null){
+            throw new IllegalArgumentException();
+        }
+        else if(index <0 || index >=students.length){
+            throw new IllegalArgumentException();
+        }
+        else {
+            students[index] = student;
+        }
 	}
 
 	@Override
-	public void addFirst(Student student) {
-		// Add your implementation here
+	public void addFirst(Student student) throws IllegalArgumentException{
+		if(student == null){
+            throw new IllegalArgumentException();
+        }
+        else {
+            students[0] = student;
+        }
 	}
 
 	@Override
-	public void addLast(Student student) {
-		// Add your implementation here
+	public void addLast(Student student) throws IllegalArgumentException{
+		if(student == null){
+            throw new IllegalArgumentException();
+        }
+        else {
+            students[students.length-1] = student;
+        }
 	}
 
 	@Override
 	public void add(Student student, int index) {
-		// Add your implementation here
+		if(student == null){
+            throw new IllegalArgumentException();
+        }
+        else if(index <0 || index >=students.length){
+            throw new IllegalArgumentException();
+        }
+        else {
+            students[index] = student;
+        }
 	}
 
 	@Override
